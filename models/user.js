@@ -2,33 +2,48 @@ let mongoose = require('mongoose');
 
 let userSchema = new mongoose.Schema({
    projectId: {
-    type: Array
-    },
+       type: Array
+   },
    name: {
        type: String
    },
+   state: {
+    type: String
+    },
    phone: {
        type: Number
    },
-   email: {
+   inBusinessSince: {
        type: String
    },
+   numberOfProjects: {
+       type: String
+   },
+   sizeOfFirm: {
+       type: String
+   },
+    email: {
+       type: String
+   },
+   services: {
+       type: Array
+   },
+   achievements: {
+    type: Array
+    },
    website: {
        type: String
    },
-   address: {
-       type: String
+   description: {
+    type: String
+    },
+   usingTemlin: {
+       type: Boolean
    },
    password: {
        type: String
    },
    occupation: {
-       type: Array
-   },
-   description: {
-       type: String
-   },
-   highlights: {
        type: Array
    },
    catalogue: {
@@ -42,7 +57,8 @@ let userSchema = new mongoose.Schema({
    },
    status: {
        type: String,
-       enum: ['active','inActive']
+       enum: ['active','inActive'],
+       default: 'inActive'
    }
 })
 
