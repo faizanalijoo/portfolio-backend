@@ -26,7 +26,8 @@ router.post('/adduser',async (req,res)=> {
         achievements: req.body.achievements,
         website: req.body.website,
         description: req.body.description,
-        usingTemlim: req.body.usingTemlim
+        usingTemlim: req.body.usingTemlim,
+        workExperience: req.body.workExperience
      })
 
     let data = await user.save();

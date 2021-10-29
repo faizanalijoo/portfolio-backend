@@ -30,12 +30,15 @@ let userSchema = new mongoose.Schema({
    },
    achievements: {
     type: Array
-    },
+   },
    website: {
        type: String
    },
    description: {
     type: String
+    },
+    workExperience: {
+        type: Array
     },
    usingTemlin: {
        type: Boolean
@@ -45,10 +48,7 @@ let userSchema = new mongoose.Schema({
    },
    occupation: {
        type: Array
-   },
-   catalogue: {
-       type: Array
-   },
+   }, 
    launchDate: {
        type: String
    },
