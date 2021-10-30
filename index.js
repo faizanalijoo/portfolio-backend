@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
 
 app.use(express.json());
 // const port = 3001
- const port = process.env.port || 3001
+ const port = process.env.PORT || 5000
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 });
