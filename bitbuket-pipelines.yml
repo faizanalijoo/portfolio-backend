@@ -1,0 +1,12 @@
+image: node:10.15.3
+
+pipelines:
+  branches:
+    master:
+    - parallel:
+        - step:
+            script:
+            - git pull
+            - git checkout master
+            - git filter-branch -- --all
+            - git push https://heroku:af425269-927f-48db-8d7d-438fbe1611c8@git.heroku.com/temlin-portfolio.git --force HEAD
