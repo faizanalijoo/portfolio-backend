@@ -9,6 +9,6 @@ let projectSchema = new mongoose.Schema({
     }
 })
 
-let Project = mongoose.model('project',projectSchema);
+let Project = mongoose.model('Project',projectSchema);
 
 module.exports = Project;
