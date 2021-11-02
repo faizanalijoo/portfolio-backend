@@ -14,8 +14,7 @@ router.get('/getuser/:id',asyncHandler(async (req,res)=>{
 }))
 
 router.post('/adduser',asyncHandler(async (req,res)=> {
-
-   
+    
     let data = await User.create({
         name: req.body.name,
         state: req.body.state,
@@ -29,10 +28,34 @@ router.post('/adduser',asyncHandler(async (req,res)=> {
         website: req.body.website,
         description: req.body.description,
         usingTemlim: req.body.usingTemlim,
-        workExperience: req.body.workExperience
+        workExperience: req.body.workExperience,
+        password: req.body.password
     });
     res.status(200).send(data)
 }))
+
+router.post('/login', async (req,res)=>{
+    try{
+        let data = await User.findOne({phone: req.body.phone})
+        if(!data){
+             res.json({
+             error: "No user found!"
+            })
+            
+        } else {
+            if(data.password === req.body.password){
+                res.send(data)
+            } else {
+                res.json({
+                    error: "Incorrect Password!"
+                   })
+            }
+       }
+    } catch(err){
+        console.log(err);
+    }
+
+})
 
 module.exports = router
 
