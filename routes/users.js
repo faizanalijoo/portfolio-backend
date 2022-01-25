@@ -13,8 +13,11 @@ router.get('/getuser/:id',asyncHandler(async (req,res)=>{
     res.send(user);
 }))
 
+router.put('/edituser/:id',(req,res)=>{
+    res.send('this is the update page')
+})
+
 router.post('/adduser',asyncHandler(async (req,res)=> {
-    
     let data = await User.create({
         name: req.body.name,
         state: req.body.state,
@@ -29,7 +32,10 @@ router.post('/adduser',asyncHandler(async (req,res)=> {
         description: req.body.description,
         usingTemlim: req.body.usingTemlim,
         workExperience: req.body.workExperience,
-        password: req.body.password
+        password: req.body.password,
+        totalProjects: req.body.totalProjects,
+        ongoingProjects: req.body.ongoingProjects,
+        category: req.body.category
     });
     res.status(200).send(data)
 }))
@@ -38,7 +44,7 @@ router.post('/login', async (req,res)=>{
     try{
         let data = await User.findOne({phone: req.body.phone})
         if(!data){
-             res.json({
+             res.status(401).send({
              error: "No user found!"
             })
             
@@ -46,7 +52,7 @@ router.post('/login', async (req,res)=>{
             if(data.password === req.body.password){
                 res.send(data)
             } else {
-                res.json({
+                    res.status(401).send({
                     error: "Incorrect Password!"
                    })
             }
@@ -56,6 +62,8 @@ router.post('/login', async (req,res)=>{
     }
 
 })
+
+
 
 module.exports = router
 

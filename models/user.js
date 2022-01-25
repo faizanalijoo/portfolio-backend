@@ -16,9 +16,14 @@ let userSchema = new mongoose.Schema({
    inBusinessSince: {
        type: String
    },
-   numberOfProjects: {
-       type: String
-   },
+   numberOfProjects: String,
+   totalProjects: String,
+   ongoingProjects: String,
+
+    category: {
+        type: String
+    },
+   
    sizeOfFirm: {
        type: String
    },
