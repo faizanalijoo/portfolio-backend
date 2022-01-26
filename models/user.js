@@ -20,6 +20,8 @@ let userSchema = new mongoose.Schema({
    totalProjects: String,
    ongoingProjects: String,
 
+   projectsDone : Array,
+
     category: {
         type: String
     },

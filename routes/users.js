@@ -35,7 +35,8 @@ router.post('/adduser',asyncHandler(async (req,res)=> {
         password: req.body.password,
         totalProjects: req.body.totalProjects,
         ongoingProjects: req.body.ongoingProjects,
-        category: req.body.category
+        category: req.body.category,
+        projectsDone: req.body.projectsDone
     });
     res.status(200).send(data)
 }))
